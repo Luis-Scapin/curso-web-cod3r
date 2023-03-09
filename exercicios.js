@@ -108,8 +108,15 @@ console.log(receberPrimeiroEUltimoElemento([-100, 'aplicativo', 16]))
 
 console.log('--- Exercício 12 ---')
 const removerPropriedade = function (objeto, propriedade) {
-    const novoObjeto = Object.create(objeto)
-    
+    const novoObjeto = Object.assign({}, objeto)
+    delete novoObjeto[propriedade]
+    return novoObjeto
 }
+console.log(removerPropriedade({a: 1, b: 2}, "a"))
+console.log(removerPropriedade({
+    id: 20,
+    nome: "caneta",
+    descricao: "Não preenchido"
+}, "descricao"))
 
 console.log('--- Exercício 13 ---')
