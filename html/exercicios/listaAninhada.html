@@ -1,18 +1,18 @@
 <h1>Projeto</h1>
 <ul class="tree">
-    <li collapsed="False">
-        Backend
+    <li>
+        <span wm-folder>Backend</span>
         <ul>
-            <li collapsed="False">
-                app
+            <li>
+                <span wm-folder>app</span>
                 <ul>
                     <li>produto.js</li>
                     <li>usuario.js</li>
                     <li>venda.js</li>
                 </ul>
             </li>
-            <li collapsed="False">
-                config
+            <li>
+                <span wm-folder>config</span>
                 <ul>
                     <li>banco.js</li>
                     <li>rotas.js</li>
@@ -21,11 +21,11 @@
             </li>
         </ul>
     </li>
-    <li collapsed="False">
-        Frontend
+    <li>
+        <span wm-folder>Frontend</span>
         <ul>
-            <li collapsed="False">
-                public
+            <li>
+                <span wm-folder>public</span>
                 <ul>
                     <li>app.css</li>
                     <li>app.js</li>
@@ -38,16 +38,14 @@
 
 <link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
 <script>
-    const collapsibles = document.querySelectorAll('[collapsed]').forEach(
-        collapsible => {
-            collapsible.onclick = function (e) {
-                collapsible.collapsed = !collapsible.collapsed;
-                collapsible.getElementsByTagName('ul').forEach(
-                    subItem => {
-                        subItem.hidden = collapsible.collapsed
-                    }
-                )
+    const collapsibles = document.querySelectorAll('[wm-folder]').forEach(
+        folder => {
+            folder.onclick = function (e) {
+                const ul = folder.nextElementSibling;
+                ul.hidden = !ul.hidden;
+                // const ulDisplay = ul.style.display;
+                // ul.style.display = ulDisplay === 'none' ? 'block' : 'none';
             }
         }
-    )
+    );
 </script>
